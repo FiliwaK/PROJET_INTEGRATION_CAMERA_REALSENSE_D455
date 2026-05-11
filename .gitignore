@@ -1,0 +1,189 @@
+# ============================================================
+#  .gitignore — Projet Pickleball 3D Digital Twin
+#  Couvre : C# WPF + Python détection + outils YOLO/dataset
+# ============================================================
+
+
+# ── Visual Studio / .NET / C# WPF ────────────────────────────────────────────
+
+# Dossiers de build
+bin/
+obj/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+[Oo]ut/
+[Ll]og/
+[Ll]ogs/
+bld/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+
+# Fichiers utilisateur Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.rsuser
+
+# Publication
+[Pp]ublish/
+PublishProfiles/
+*.pubxml
+*.publishsettings
+PublishScripts/
+
+# NuGet
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+*.nuget.props
+*.nuget.targets
+
+# Fichiers compilés Visual Studio
+*.ilk
+*.obj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*_wpftmp.csproj
+*.tlog
+*.vspscc
+*.vssscc
+
+# Tests
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Divers .NET
+*.binlog
+MSBuild_Logs/
+MigrationBackup/
+FodyWeavers.xsd
+BenchmarkDotNet.Artifacts/
+project.lock.json
+artifacts/
+
+
+# ── Python ───────────────────────────────────────────────────────────────────
+
+# Environnements virtuels
+venv/
+.venv/
+env/
+.env/
+python-tools/venv/
+
+# Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Outils de qualité de code
+.mypy_cache/
+.dmypy.json
+.pyright/
+.pytest_cache/
+htmlcov/
+.coverage
+pip-log.txt
+
+
+# ── Modèles IA et fichiers lourds ─────────────────────────────────────────────
+
+# Modèles entraînés (trop lourds pour GitHub)
+*.onnx
+*.pt
+*.bin
+*.weights
+*.h5
+
+# OpenVINO
+DEMOREALSENSE/Models/ball_openvino/
+DEMOREALSENSE/Models/line_openvino/
+
+# Scans 3D (générés par scanner_3d.py)
+*.ply
+*.obj
+terrain_scan.*
+
+
+# ── Datasets / Label Studio ──────────────────────────────────────────────────
+
+label-studio-data/
+datasets/raw_images/
+datasets/split_output/
+datasets/ball_detect/
+datasets/line_seg/
+
+
+# ── Fichiers de calibration (machine-spécifiques, regénérables) ──────────────
+# Décommente si tu ne veux pas versionner les calibrations
+# (chaque poste a des valeurs différentes selon le placement des caméras)
+
+# terrain_corners.json
+# side_terrain_calib.json
+# floor_calib.json
+
+
+# ── Système d'exploitation ────────────────────────────────────────────────────
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs généraux
+*.log
+
+
+# ── VS Code ───────────────────────────────────────────────────────────────────
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.history/
+*.vsix
+
+
+# ── Variables d'environnement / secrets ──────────────────────────────────────
+
+.env
+.env.local
+*.env
