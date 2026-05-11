@@ -1,0 +1,92 @@
+<Window x:Class="Projet_detectionMouvement.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hx="http://helix-toolkit.org/wpf"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Digital Twin — Intel RealSense D455"
+        Height="640" Width="960"
+        Background="#070b12"
+        ResizeMode="CanResize">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="48"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Margin="8,8,8,4"
+                BorderBrush="#1c2a3a" BorderThickness="1" CornerRadius="6">
+            <Grid>
+
+                <hx:HelixViewport3D Name="Viewport3D"
+                                    Background="#070b12"
+                                    ShowFrameRate="True"
+                                    ShowCoordinateSystem="False"
+                                    ZoomExtentsWhenLoaded="True"
+                                    IsHeadLightEnabled="True"
+                                    CameraRotationMode="Trackball">
+                    <hx:HelixViewport3D.Camera>
+                        <PerspectiveCamera Position="0, 2.8, 0.35"
+                                           LookDirection="0, -2.8, -0.35"
+                                           UpDirection="0, 1, 0"
+                                           FieldOfView="52"/>
+                    </hx:HelixViewport3D.Camera>
+                </hx:HelixViewport3D>
+
+                <!-- Verdict IN / OUT -->
+                <TextBlock Name="VerdictText"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Margin="0,18,0,0"
+                           FontSize="80"
+                           FontWeight="Black"
+                           FontFamily="Arial Black"
+                           Visibility="Collapsed"
+                           Opacity="0.95"/>
+
+                <!-- Story 6a : Nom du match -->
+                <TextBlock Name="MatchLabel"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"
+                           Margin="0,0,0,12"
+                           FontSize="14"
+                           FontWeight="SemiBold"
+                           FontFamily="Arial"
+                           Foreground="#4488cc"
+                           Opacity="0.85"
+                           Text="ROCKET VS EAGLES"/>
+
+            </Grid>
+        </Border>
+
+        <!-- Barre de statut -->
+        <Border Grid.Row="1" Background="#0a0f1a"
+                BorderBrush="#1c2a3a" BorderThickness="0,1,0,0">
+            <Grid Margin="14,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Orientation="Horizontal"
+                            VerticalAlignment="Center">
+                    <Ellipse Name="StatusDot" Width="12" Height="12"
+                             Fill="Gray" VerticalAlignment="Center"
+                             Margin="0,0,10,0"/>
+                    <TextBlock Name="StatusText"
+                               FontSize="14" FontWeight="SemiBold"
+                               Foreground="White" VerticalAlignment="Center"
+                               Text="En attente..."/>
+                </StackPanel>
+
+                <TextBlock Name="PositionText" Grid.Column="2"
+                           FontSize="12" FontFamily="Consolas"
+                           Foreground="#6688aa" VerticalAlignment="Center"
+                           Text="X:-.--  Z:-.--"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
